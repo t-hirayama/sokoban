@@ -19,7 +19,6 @@ public class Surface : MonoBehaviour {
 		else if (transform.localPosition.z < -REF_VALUE) {
 			transform.parent.Translate(new Vector3(0.0f, 0.0f, DISTANCE));
 		}
-		/*
-*/		
+
 	}
 }

@@ -1,11 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Stage.cs">
     <Files>
-      <File FileName="Assets\script\Game.cs" Line="23" Column="12" />
-      <File FileName="Assets\script\Startup.cs" Line="16" Column="18" />
-      <File FileName="Assets\script\Stage.cs" Line="10" Column="9" />
-      <File FileName="Assets\script\Coordinate.cs" Line="11" Column="14" />
+      <File FileName="Assets\script\View.cs" Line="10" Column="1" />
+      <File FileName="Assets\script\Surface.cs" Line="31" Column="1" />
+      <File FileName="Assets\script\Startup.cs" Line="19" Column="18" />
+      <File FileName="Assets\script\Coordinate.cs" Line="25" Column="47" />
+      <File FileName="Assets\script\Game.cs" Line="15" Column="36" />
+      <File FileName="Assets\script\Stage.cs" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

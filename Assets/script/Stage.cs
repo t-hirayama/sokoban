@@ -42,4 +42,24 @@ public class Stage {
 	public int getCell(int x, int z) {
 		return cells[x, z];
 	}
+
+	public void moveCube(Coordinate current, Coordinate next) {
+		switch (cells[next.x, next.z]) {
+		case DESTINATION:
+			cells[next.x, next.z] = PUT;
+			break;
+		case NONE:
+			cells[next.x, next.z] = MOVABLE;
+			break;
+		}
+
+		switch (cells[current.x, current.z]) {
+		case MOVABLE:
+			cells[current.x, current.z] = NONE;
+			break;
+		case PUT:
+			cells[current.x, current.z] = DESTINATION;
+			break;
+		}
+	}
 }

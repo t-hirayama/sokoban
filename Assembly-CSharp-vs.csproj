@@ -52,6 +52,7 @@
      <Compile Include="Assets\script\Stage.cs" />
      <Compile Include="Assets\script\Startup.cs" />
      <Compile Include="Assets\script\Surface.cs" />
+     <Compile Include="Assets\script\View.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/learn/lesson/unity/20150316_01/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

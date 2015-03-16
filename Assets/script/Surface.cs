@@ -4,21 +4,30 @@ using System.Collections;
 public class Surface : MonoBehaviour {
 
 	public void OnTriggerEnter( Collider col ) {
+
 		const float REF_VALUE = 0.5f;
-		const float DISTANCE = 2.0f;
+		Coordinate movement = new Coordinate (0, 0);
 
 		if (transform.localPosition.x > REF_VALUE) {
-			transform.parent.Translate(new Vector3(-DISTANCE, 0.0f, 0.0f));
+			movement.x = -1;
 		}
 		else if (transform.localPosition.x < -REF_VALUE) {
-			transform.parent.Translate(new Vector3(DISTANCE, 0.0f, 0.0f));
+			movement.x = 1;
 		}
 		else if (transform.localPosition.z > REF_VALUE) {
-			transform.parent.Translate(new Vector3(0.0f, 0.0f, -DISTANCE));
+			movement.z = -1;
 		}
 		else if (transform.localPosition.z < -REF_VALUE) {
-			transform.parent.Translate(new Vector3(0.0f, 0.0f, DISTANCE));
+			movement.z = 1;
 		}
 
+		Game game = Game.getInstance ();
+		const float DISTANCE = 2.0f;
+		Coordinate current = Coordinate.fromRealPoint(transform.parent.transform.position);
+
+		Coordinate next = current + movement;
+		if (game.moveCube(current, next)) {
+			transform.parent.Translate(new Vector3(movement.x * DISTANCE, 0.0f, movement.z * DISTANCE));
+		}
 	}
 }

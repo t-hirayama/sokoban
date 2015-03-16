@@ -10,14 +10,15 @@ public class Startup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		View view = new View ();
 		Game game = Game.initialize (
+			view,
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
-			"uuu pd uuu" +
-			"uuu  m  uu" +
-			"uuu    uuu" +
+			"uuu pdd  u" +
+			"uuu  mm  u" +
+			"uuu     uu" +
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
@@ -28,22 +29,18 @@ public class Startup : MonoBehaviour {
 			for (int z = 0; z < Stage.HEIGHT; z++) {
 				int c = game.getCell(x, z);
 				if (c == Stage.UNMOVABLE) {
-					instantiateObject(UnmovableCube, x, z);
+					view.instantiateObject(UnmovableCube, x, z);
 				}
 				else if (c == Stage.MOVABLE) {
-					instantiateObject(MovableCube, x, z);
+					view.instantiateObject(MovableCube, x, z);
 				}
 				else if (c == Stage.DESTINATION) {
-					instantiateObject(Destination, x, z);
+					view.instantiateObject(Destination, x, z);
 				}
 			}
 		}
 	}
 
-	private void instantiateObject(GameObject item, int x, int z) {
-		Instantiate(item, new Coordinate(x, z).toRealPoint(), Quaternion.identity);
-	}
-	
 	// Update is called once per frame
 	void Update () {
 	

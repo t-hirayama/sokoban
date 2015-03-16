@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\script\Coordinate.cs" />
      <Compile Include="Assets\script\DeathZone.cs" />
      <Compile Include="Assets\script\Game.cs" />
      <Compile Include="Assets\script\Stage.cs" />

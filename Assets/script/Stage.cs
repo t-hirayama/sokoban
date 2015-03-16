@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Stage {
 
-	public int val = 0;
-
 	// Use this for initialization
 	void Start () {
 	

@@ -6,7 +6,6 @@ public class Game {
 	private static Game instance;
 
 	private Stage stage;
-	private string data;
 
 	public static Game initialize(string data) {
 		instance = new Game (data);
@@ -18,17 +17,11 @@ public class Game {
 	}
 
 	public Game(string data) {
-		stage = new Stage();
-		this.data = data;
+		stage = new Stage(data);
 	}
 
-	public Stage getStage() {
-		return stage;
+	public int getCell(int x, int z) {
+		return stage.getCell (x, z);
 	}
-
-	public string getData() {
-		return data;
-	}
-
 
 }

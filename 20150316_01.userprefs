@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Game.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Startup.cs">
     <Files>
-      <File FileName="Assets\script\Startup.cs" Line="40" Column="60" />
-      <File FileName="Assets\script\Game.cs" Line="16" Column="36" />
-      <File FileName="Assets\script\Stage.cs" Line="4" Column="1" />
+      <File FileName="Assets\script\Game.cs" Line="23" Column="12" />
+      <File FileName="Assets\script\Startup.cs" Line="16" Column="18" />
+      <File FileName="Assets\script\Stage.cs" Line="10" Column="9" />
       <File FileName="Assets\script\Coordinate.cs" Line="11" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>

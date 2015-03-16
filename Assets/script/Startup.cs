@@ -7,7 +7,6 @@ public class Startup : MonoBehaviour {
 	public GameObject UnmovableCube;
 	public GameObject Destination;
 
-	const int STAGE_WIDTH = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -25,19 +24,18 @@ public class Startup : MonoBehaviour {
 			"uuuuuuuuuu"
 			);
 
-		string stage = game.getData ();
-
-
-		for (int i = 0; i < stage.Length; i ++) {
-			string c = stage.Substring(i, 1);
-			if (c == "u") {
-				instantiateObject(UnmovableCube, i / STAGE_WIDTH, i % STAGE_WIDTH);
-			}
-			else if (c == "m") {
-				instantiateObject(MovableCube, i / STAGE_WIDTH, i % STAGE_WIDTH);
-			}
-			else if (c == "d") {
-				instantiateObject(Destination, i / STAGE_WIDTH, i % STAGE_WIDTH);
+		for (int x = 0; x < Stage.WIDTH; x++) {
+			for (int z = 0; z < Stage.HEIGHT; z++) {
+				int c = game.getCell(x, z);
+				if (c == Stage.UNMOVABLE) {
+					instantiateObject(UnmovableCube, x, z);
+				}
+				else if (c == Stage.MOVABLE) {
+					instantiateObject(MovableCube, x, z);
+				}
+				else if (c == Stage.DESTINATION) {
+					instantiateObject(Destination, x, z);
+				}
 			}
 		}
 	}

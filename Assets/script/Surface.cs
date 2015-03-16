@@ -26,8 +26,12 @@ public class Surface : MonoBehaviour {
 		Coordinate current = Coordinate.fromRealPoint(transform.parent.transform.position);
 
 		Coordinate next = current + movement;
-		if (game.moveCube(current, next)) {
+		if (game.isMovableAt (next)) {
 			transform.parent.Translate(new Vector3(movement.x * DISTANCE, 0.0f, movement.z * DISTANCE));
+			if (game.moveCube(current, next)) {
+				// finished playing, show result of the game.
+				Debug.Log("completed this stage!");
+			}
 		}
 	}
 }

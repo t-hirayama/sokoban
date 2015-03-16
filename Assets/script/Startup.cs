@@ -10,6 +10,7 @@ public class Startup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		View view = new View ();
 		Game game = Game.initialize (
 			view,

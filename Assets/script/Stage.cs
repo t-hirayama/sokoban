@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Stage {
 
@@ -13,6 +14,7 @@ public class Stage {
 	public const int PUT = 4;
 
 	private int[,] cells;
+	private static List<Coordinate> trace;
 
 	public Stage(string data) {
 		cells = parse (data);
@@ -20,19 +22,25 @@ public class Stage {
 
 	private static int[,] parse(string data) {
 		int[,] cells = new int[WIDTH, HEIGHT];
+
+		trace = new List<Coordinate>();
+
 		for (int i = 0; i < data.Length; i++) {
 			string ch = data.Substring(i, 1);
+			Coordinate position = new Coordinate(i / WIDTH, i % WIDTH);
 			if (ch == "u") {
-				cells[i / WIDTH, i % WIDTH] = UNMOVABLE;
+				cells[position.x, position.z] = UNMOVABLE;
 			}
 			else if (ch == "m") {
-				cells[i / WIDTH, i % WIDTH] = MOVABLE;
+				cells[position.x, position.z] = MOVABLE;
 			}
 			else if (ch == "d") {
-				cells[i / WIDTH, i % WIDTH] = DESTINATION;
+				cells[position.x, position.z] = DESTINATION;
+
+				trace.Add(position);
 			}
 			else {
-				cells[i / WIDTH, i % WIDTH] = NONE;
+				cells[position.x, position.z] = NONE;
 			}
 		}
 		return cells;
@@ -43,7 +51,7 @@ public class Stage {
 		return cells[x, z];
 	}
 
-	public void moveCube(Coordinate current, Coordinate next) {
+	public bool moveCube(Coordinate current, Coordinate next) {
 		switch (cells[next.x, next.z]) {
 		case DESTINATION:
 			cells[next.x, next.z] = PUT;
@@ -61,5 +69,17 @@ public class Stage {
 			cells[current.x, current.z] = DESTINATION;
 			break;
 		}
+
+		return isCompleted ();
+	}
+
+	public bool isCompleted() {
+		for (int i = 0; i < trace.Count; i++) {
+			Coordinate position = trace[i];
+			if (cells[position.x, position.z] != PUT) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

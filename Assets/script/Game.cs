@@ -36,10 +36,6 @@ public class Game {
 	}
 
 	public bool moveCube(Coordinate current, Coordinate next) {
-		if (isMovableAt (next)) {
-			stage.moveCube(current, next);
-			return true;
-		}
-		return false;
+		return stage.moveCube(current, next);
 	}
 }

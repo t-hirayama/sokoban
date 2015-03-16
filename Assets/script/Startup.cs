@@ -11,12 +11,8 @@ public class Startup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Game.initialize ();
 
-		Stage s = Game.getStage ();
-
-
-		string stage =
+		Game game = Game.initialize (
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
@@ -26,7 +22,11 @@ public class Startup : MonoBehaviour {
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
-			"uuuuuuuuuu";
+			"uuuuuuuuuu"
+			);
+
+		string stage = game.getData ();
+
 
 		for (int i = 0; i < stage.Length; i ++) {
 			string c = stage.Substring(i, 1);

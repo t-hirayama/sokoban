@@ -3,14 +3,31 @@ using System.Collections;
 
 public class Game {
 
-	private static Stage stage;
+	private static Game instance;
 
-	public static void initialize() {
-		stage = new Stage();
+	private Stage stage;
+	private string data;
+
+	public static Game initialize(string data) {
+		instance = new Game (data);
+		return instance;
 	}
 
-	public static Stage getStage() {
+	public static Game getInstance() {
+		return instance;
+	}
+
+	public Game(string data) {
+		stage = new Stage();
+		this.data = data;
+	}
+
+	public Stage getStage() {
 		return stage;
+	}
+
+	public string getData() {
+		return data;
 	}
 
 

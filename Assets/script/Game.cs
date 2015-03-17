@@ -1,23 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Game {
+public class Game : MonoBehaviour {
+	public GameObject MovableCube;
+	public GameObject UnmovableCube;
+	public GameObject Destination;
 
 	private static Game instance;
 
 	private Stage stage;
 
-	public static Game initialize(string data) {
-		instance = new Game (data);
-		return instance;
+	void Start () {
+		instance = this;
+		this.stage = new Stage(
+			"uuuuuuuuuu" +
+			"uuuuuuuuuu" +
+			"uuuuuuuuuu" +
+			"uuu pdd  u" +
+			"uuu  mm  u" +
+			"uuu     uu" +
+			"uuuuuuuuuu" +
+			"uuuuuuuuuu" +
+			"uuuuuuuuuu" +
+			"uuuuuuuuuu"
+			);
+		
+		View view = new View ();
+		for (int x = 0; x < Stage.WIDTH; x++) {
+			for (int z = 0; z < Stage.HEIGHT; z++) {
+				int c = getCell(x, z);
+				if (c == Stage.UNMOVABLE) {
+					view.instantiateObject(UnmovableCube, x, z);
+				}
+				else if (c == Stage.MOVABLE) {
+					view.instantiateObject(MovableCube, x, z);
+				}
+				else if (c == Stage.DESTINATION) {
+					view.instantiateObject(Destination, x, z);
+				}
+			}
+		}
 	}
 
 	public static Game getInstance() {
 		return instance;
-	}
-
-	public Game(string data) {
-		this.stage = new Stage(data);
 	}
 
 	public int getCell(int x, int z) {

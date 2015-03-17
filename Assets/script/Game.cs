@@ -18,18 +18,7 @@ public class Game : MonoBehaviour {
 		UnityEngine.UI.Text t = getStageLabel ();
 		t.text = "Stage " + currentStage;
 
-		this.stage = new Stage(
-			"uuuuuuuuuu" +
-			"uuuuuuuuuu" +
-			"uuuuuuuuuu" +
-			"uuu pdd  u" +
-			"uuu  mm  u" +
-			"uuu     uu" +
-			"uuuuuuuuuu" +
-			"uuuuuuuuuu" +
-			"uuuuuuuuuu" +
-			"uuuuuuuuuu"
-			);
+		this.stage = new Stage(generateStageData(currentStage));
 		
 		View view = new View ();
 		for (int x = 0; x < Stage.WIDTH; x++) {
@@ -95,5 +84,32 @@ public class Game : MonoBehaviour {
 		}
 	}
 
+	private static string generateStageData(int stageId) {
+		switch (stageId) {
+		case 1:
+			return 	"uuuuuuuuuu" +
+					"u  uduuuuu" +
+					"u mmmduuuu" +
+					"u  m  uuuu" +
+					"up udduuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu";
+		case 2:
+			return 	"uuuuuuuuuu" +
+					"uu ud duuu" +
+					"u  m d uuu" +
+					"u mudmduuu" +
+					"u  m d uuu" +
+					"uu um uuuu" +
+					"u m  uuuuu" +
+					"u   uuuuuu" +
+					"up uuuuuuu" +
+					"uuuuuuuuuu";
+		}
+		return "";
+	}
 
 }

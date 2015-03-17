@@ -5,6 +5,7 @@ public class Game : MonoBehaviour {
 	public GameObject MovableCube;
 	public GameObject UnmovableCube;
 	public GameObject Destination;
+	public Canvas cvs;
 
 	private static Game instance;
 
@@ -33,7 +34,9 @@ public class Game : MonoBehaviour {
 					view.instantiateObject(UnmovableCube, x, z);
 				}
 				else if (c == Stage.MOVABLE) {
-					view.instantiateObject(MovableCube, x, z);
+					GameObject obj = view.instantiateObject(MovableCube, x, z);
+					MovableCube movable = obj.GetComponent<MovableCube>();
+					movable.create(cvs);
 				}
 				else if (c == Stage.DESTINATION) {
 					view.instantiateObject(Destination, x, z);

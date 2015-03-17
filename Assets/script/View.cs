@@ -3,8 +3,8 @@ using System.Collections;
 
 public class View : Object {
 
-	public void instantiateObject(GameObject item, int x, int z) {
-		Instantiate(item, new Coordinate(x, z).toRealPoint(), Quaternion.identity);
+	public GameObject instantiateObject(GameObject item, int x, int z) {
+		return (GameObject)Instantiate(item, new Coordinate(x, z).toRealPoint(), Quaternion.identity);
 	}
 
 }

@@ -4,6 +4,11 @@ using System.Collections;
 public class Surface : MonoBehaviour {
 
 	public GameObject Button;
+	private Canvas canvas;
+
+	public void create(Canvas canvas) {
+		this.canvas = canvas;
+	}
 
 	public void OnTriggerEnter( Collider col ) {
 
@@ -32,10 +37,18 @@ public class Surface : MonoBehaviour {
 			transform.parent.Translate(new Vector3(movement.x * DISTANCE, 0.0f, movement.z * DISTANCE));
 			if (game.moveCube(current, next)) {
 
-				Instantiate(Button);
+				GameObject btn = (GameObject)Instantiate(Button);
 
-				// finished playing, show result of the game.
-//				Debug.Log("completed this stage!");
+				UnityEngine.UI.Button btn2 = btn.GetComponent<UnityEngine.UI.Button>();
+				btn2.transform.position.Set(200.0f, 100.0f, 0.0f);
+				btn2.transform.SetParent(canvas.transform, false);
+
+				btn2.onClick.AddListener( () => { 
+					Application.LoadLevel( Application.loadedLevel );
+				} );
+
+
+
 			}
 		}
 	}

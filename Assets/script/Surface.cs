@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Surface : MonoBehaviour {
 
+	public GameObject Button;
+
 	public void OnTriggerEnter( Collider col ) {
 
 		const float REF_VALUE = 0.5f;
@@ -29,8 +31,11 @@ public class Surface : MonoBehaviour {
 		if (game.isMovableAt (next)) {
 			transform.parent.Translate(new Vector3(movement.x * DISTANCE, 0.0f, movement.z * DISTANCE));
 			if (game.moveCube(current, next)) {
+
+				Instantiate(Button);
+
 				// finished playing, show result of the game.
-				Debug.Log("completed this stage!");
+//				Debug.Log("completed this stage!");
 			}
 		}
 	}

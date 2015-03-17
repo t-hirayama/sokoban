@@ -11,9 +11,7 @@ public class Startup : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		View view = new View ();
 		Game game = Game.initialize (
-			view,
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
@@ -26,6 +24,7 @@ public class Startup : MonoBehaviour {
 			"uuuuuuuuuu"
 			);
 
+		View view = new View ();
 		for (int x = 0; x < Stage.WIDTH; x++) {
 			for (int z = 0; z < Stage.HEIGHT; z++) {
 				int c = game.getCell(x, z);

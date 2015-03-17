@@ -7,8 +7,8 @@ public class Game {
 
 	private Stage stage;
 
-	public static Game initialize(View view, string data) {
-		instance = new Game (view, data);
+	public static Game initialize(string data) {
+		instance = new Game (data);
 		return instance;
 	}
 
@@ -16,7 +16,7 @@ public class Game {
 		return instance;
 	}
 
-	public Game(View view, string data) {
+	public Game(string data) {
 		this.stage = new Stage(data);
 	}
 

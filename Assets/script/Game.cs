@@ -10,9 +10,13 @@ public class Game : MonoBehaviour {
 	private static Game instance;
 
 	private Stage stage;
+	public static int currentStage = 1;
 
 	void Start () {
 		instance = this;
+		UnityEngine.UI.Text t = getStageLabel ();
+		t.text = "Stage " + currentStage;
+
 		this.stage = new Stage(
 			"uuuuuuuuuu" +
 			"uuuuuuuuuu" +
@@ -44,6 +48,18 @@ public class Game : MonoBehaviour {
 			}
 		}
 	}
+
+	private UnityEngine.UI.Text getStageLabel() {
+		for (int i = 0; i < cvs.transform.childCount; i++) {
+			Transform child = cvs.transform.GetChild(i);
+			if (child.gameObject.name == "CurrentStage") {
+				return child.gameObject.GetComponent<UnityEngine.UI.Text>();
+			}
+		}
+		throw new UnityException ();
+	}
+
+
 
 	public static Game getInstance() {
 		return instance;

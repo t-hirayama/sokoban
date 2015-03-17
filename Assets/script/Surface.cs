@@ -46,6 +46,7 @@ public class Surface : MonoBehaviour {
 				btn2.transform.SetParent(canvas.transform, false);
 
 				btn2.onClick.AddListener( () => { 
+					Game.currentStage++;
 					Application.LoadLevel( Application.loadedLevel );
 				} );
 

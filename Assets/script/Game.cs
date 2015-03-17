@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Game : MonoBehaviour {
+	public GameObject PlayerCharacter;
 	public GameObject MovableCube;
 	public GameObject UnmovableCube;
 	public GameObject Destination;
@@ -45,6 +46,10 @@ public class Game : MonoBehaviour {
 				else if (c == Stage.DESTINATION) {
 					view.instantiateObject(Destination, x, z);
 				}
+				else if (c == Stage.PLAYER_CHARACTER) {
+					view.instantiateObject(PlayerCharacter, x, z);
+				}
+
 			}
 		}
 	}

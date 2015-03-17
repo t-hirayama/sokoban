@@ -12,6 +12,7 @@ public class Stage {
 	public const int UNMOVABLE = 2;
 	public const int DESTINATION = 3;
 	public const int PUT = 4;
+	public const int PLAYER_CHARACTER = 5;
 
 	private int[,] cells;
 	private static List<Coordinate> trace;
@@ -36,8 +37,10 @@ public class Stage {
 			}
 			else if (ch == "d") {
 				cells[position.x, position.z] = DESTINATION;
-
 				trace.Add(position);
+			}
+			else if (ch == "p") {
+				cells[position.x, position.z] = PLAYER_CHARACTER;
 			}
 			else {
 				cells[position.x, position.z] = NONE;

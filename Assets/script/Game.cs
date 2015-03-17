@@ -67,4 +67,12 @@ public class Game : MonoBehaviour {
 	public bool moveCube(Coordinate current, Coordinate next) {
 		return stage.moveCube(current, next);
 	}
+
+	public void retryGame(int i) {
+		if (i == 0) {
+			Application.LoadLevel( Application.loadedLevel );
+		}
+	}
+
+
 }

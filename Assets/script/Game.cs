@@ -88,6 +88,17 @@ public class Game : MonoBehaviour {
 		switch (stageId) {
 		case 1:
 			return 	"uuuuuuuuuu" +
+					"u md uuuuu" +
+					"u    uuuuu" +
+					"up   uuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu" +
+					"uuuuuuuuuu";
+		case 2:
+			return 	"uuuuuuuuuu" +
 					"u  uduuuuu" +
 					"u mmmduuuu" +
 					"u  m  uuuu" +
@@ -97,7 +108,7 @@ public class Game : MonoBehaviour {
 					"uuuuuuuuuu" +
 					"uuuuuuuuuu" +
 					"uuuuuuuuuu";
-		case 2:
+		case 3:
 			return 	"uuuuuuuuuu" +
 					"uu ud duuu" +
 					"u  m d uuu" +

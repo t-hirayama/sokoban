@@ -42,7 +42,9 @@ public class Surface : MonoBehaviour {
 				UnityEngine.UI.Button btn2 = btn.GetComponent<UnityEngine.UI.Button>();
 
 				RectTransform rect = btn2.GetComponent<RectTransform>();
-				rect.position = new Vector3(241.0f, 210.0f, 0.0f);
+				rect.anchorMax = new Vector2(1, 1);
+				rect.anchorMin = new Vector2(1, 1);
+				rect.position = new Vector3(-92.0f, -64.0f, 0.0f);
 				btn2.transform.SetParent(canvas.transform, false);
 
 				btn2.onClick.AddListener( () => { 

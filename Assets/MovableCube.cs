@@ -8,10 +8,6 @@ public class MovableCube : MonoBehaviour {
 			Surface s = t.GetComponent<Surface> ();
 			s.create(canvas);
 		}
-
-
-
-
 	}
 
 }

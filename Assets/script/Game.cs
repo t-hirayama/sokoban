@@ -74,14 +74,18 @@ public class Game : MonoBehaviour {
 		return false;
 	}
 
-	public bool moveCube(Coordinate current, Coordinate next) {
-		return stage.moveCube(current, next);
+	public void moveCube(Coordinate current, Coordinate next) {
+		stage.moveCube(current, next);
 	}
 
 	public void retryGame(int i) {
 		if (i == 0) {
 			Application.LoadLevel( Application.loadedLevel );
 		}
+	}
+
+	public bool isCompleted() {
+		return stage.isCompleted ();
 	}
 
 	private static string generateStageData(int stageId) {

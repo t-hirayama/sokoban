@@ -35,7 +35,8 @@ public class Surface : MonoBehaviour {
 		Coordinate next = current + movement;
 		if (game.isMovableAt (next)) {
 			transform.parent.Translate(new Vector3(movement.x * DISTANCE, 0.0f, movement.z * DISTANCE));
-			if (game.moveCube(current, next)) {
+			game.moveCube(current, next);
+			if (game.isCompleted()) {
 
 				GameObject btn = (GameObject)Instantiate(Button);
 

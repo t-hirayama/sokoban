@@ -54,7 +54,7 @@ public class Stage {
 		return cells[x, z];
 	}
 
-	public bool moveCube(Coordinate current, Coordinate next) {
+	public void moveCube(Coordinate current, Coordinate next) {
 		switch (cells[next.x, next.z]) {
 		case DESTINATION:
 			cells[next.x, next.z] = PUT;
@@ -72,8 +72,6 @@ public class Stage {
 			cells[current.x, current.z] = DESTINATION;
 			break;
 		}
-
-		return isCompleted ();
 	}
 
 	public bool isCompleted() {

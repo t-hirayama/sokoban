@@ -88,6 +88,10 @@ public class Game : MonoBehaviour {
 		return stage.isCompleted ();
 	}
 
+	public bool isDestinationAt(Coordinate coordinate) {
+		return stage.isDestinationAt (coordinate);
+	}
+
 	private static string generateStageData(int stageId) {
 		switch (stageId) {
 		case 1:

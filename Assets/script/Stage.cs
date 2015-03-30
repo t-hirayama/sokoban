@@ -74,6 +74,10 @@ public class Stage {
 		}
 	}
 
+	public bool isDestinationAt(Coordinate coordinate) {
+		return cells [coordinate.x, coordinate.z] == DESTINATION;
+	}
+
 	public bool isCompleted() {
 		for (int i = 0; i < trace.Count; i++) {
 			Coordinate position = trace[i];

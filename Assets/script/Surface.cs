@@ -4,10 +4,16 @@ using System.Collections;
 public class Surface : MonoBehaviour {
 
 	public GameObject Button;
+	public Material colorOnDestination;
+	public Material colorOnEmpty;
+
 	private Canvas canvas;
 
 	public void create(Canvas canvas) {
 		this.canvas = canvas;
+		this.colorOnEmpty = transform.parent.renderer.material;
+
+		applyAppropriateColor ();
 	}
 
 	public void OnTriggerEnter( Collider col ) {
@@ -35,7 +41,10 @@ public class Surface : MonoBehaviour {
 		Coordinate next = current + movement;
 		if (game.isMovableAt (next)) {
 			transform.parent.Translate(new Vector3(movement.x * DISTANCE, 0.0f, movement.z * DISTANCE));
+			applyAppropriateColor();
+
 			game.moveCube(current, next);
+
 			if (game.isCompleted()) {
 
 				GameObject btn = (GameObject)Instantiate(Button);
@@ -53,9 +62,19 @@ public class Surface : MonoBehaviour {
 					Application.LoadLevel( Application.loadedLevel );
 				} );
 
-
-
 			}
+		}
+	}
+
+	private void applyAppropriateColor() {
+		Game game = Game.getInstance ();
+		Coordinate current = Coordinate.fromRealPoint(transform.parent.transform.position);
+
+		if (game.isDestinationAt(current)) {
+			transform.parent.renderer.material = colorOnDestination;
+		}
+		else {
+			transform.parent.renderer.material = colorOnEmpty;
 		}
 	}
 }
